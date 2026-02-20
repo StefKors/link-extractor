@@ -1,15 +1,17 @@
-name: Publish Package to npm
+name: Release & Publish
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - "v*.*.*"
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
     steps:
       - uses: actions/checkout@v4
+      - uses: softprops/action-gh-release@v2
       - uses: oven-sh/setup-bun@v2
       - uses: actions/setup-node@v4
         with:
