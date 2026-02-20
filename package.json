@@ -1,6 +1,6 @@
 {
   "name": "@kors/link-extractor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extract and normalize links from HTML elements with MutationObserver support for dynamic content",
   "type": "module",
   "main": "./dist/index.js",
