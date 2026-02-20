@@ -1,24 +1,25 @@
-name: Release & Publish
+name: Publish Package
+
 on:
   push:
     tags:
-      - "v*.*.*"
+      - 'v*'
+
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: softprops/action-gh-release@v2
       - uses: oven-sh/setup-bun@v2
       - uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
       - run: bun install
       - run: bun run build
+      - run: bun vitest run
       - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
