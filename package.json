@@ -1,0 +1,55 @@
+{
+  "name": "@kors/link-extractor",
+  "version": "1.0.0",
+  "description": "Extract and normalize links from HTML elements with MutationObserver support for dynamic content",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "test": "bun vitest run",
+    "prepublishOnly": "bun run build"
+  },
+  "keywords": [
+    "links",
+    "extract",
+    "html",
+    "anchor",
+    "url",
+    "normalize",
+    "mutation-observer",
+    "dom"
+  ],
+  "author": {
+    "name": "Stef Kors",
+    "url": "https://github.com/StefKors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StefKors/link-extractor.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "license": "MIT",
+  "packageManager": "bun",
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "devDependencies": {
+    "jsdom": "^26.0.0",
+    "tsdown": "^0.20.3",
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.0"
+  }
+}
